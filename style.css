@@ -1,0 +1,405 @@
+/* ─────────────────────────────────────────
+   Wikipedia Clone — style.css
+   Edit freely — it's just CSS!
+───────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, 'Linux Libertine', Georgia, Times, serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #202122;
+  background: #fff;
+}
+
+a { color: #3366cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── TOP BAR ── */
+#mw-head-base {
+  height: 4px;
+  background: #a7d7f9;
+}
+
+#mw-head {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #a2a9b1;
+  background: #fff;
+  padding: 0 10px;
+  min-height: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#p-logo img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+#mw-head-nav {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 4px;
+}
+
+#p-namespaces, #p-views, #p-personal {
+  display: flex;
+  list-style: none;
+  gap: 0;
+  align-items: flex-end;
+}
+
+#p-namespaces li a,
+#p-views li a {
+  display: block;
+  padding: 6px 10px;
+  font-size: 12.5px;
+  color: #54595d;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+  white-space: nowrap;
+  background: #f8f9fa;
+  margin-bottom: -1px;
+}
+
+#p-namespaces li.selected a,
+#p-views li.selected a {
+  background: #fff;
+  border-color: #a2a9b1;
+  color: #202122;
+  font-weight: 500;
+}
+
+#p-namespaces li a:hover,
+#p-views li a:hover { background: #eaf3fb; text-decoration: none; }
+
+#p-search {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 0 16px;
+}
+
+#p-search form {
+  display: flex;
+  border: 1px solid #a2a9b1;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+#p-search input[type="search"] {
+  border: none;
+  outline: none;
+  padding: 5px 8px;
+  font-size: 13px;
+  width: 280px;
+  font-family: inherit;
+}
+
+#p-search button {
+  border: none;
+  background: #f8f9fa;
+  border-left: 1px solid #a2a9b1;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
+#p-search button:hover { background: #e8e8e8; }
+
+#p-personal {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin-left: 16px;
+  white-space: nowrap;
+}
+#p-personal li a { font-size: 12.5px; color: #3366cc; }
+
+/* ── LAYOUT ── */
+#content-wrapper {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ── SIDEBAR ── */
+#mw-sidebar {
+  width: 160px;
+  min-width: 160px;
+  border-right: 1px solid #a2a9b1;
+  padding: 12px 10px;
+  font-size: 12.5px;
+}
+
+.sidebar-logo-block {
+  text-align: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #a2a9b1;
+}
+
+.sidebar-wordmark {
+  width: 130px;
+  height: auto;
+}
+
+.sidebar-tagline {
+  font-size: 11.5px;
+  color: #54595d;
+  margin-top: 3px;
+}
+
+.sidebar-section { margin-bottom: 14px; }
+
+.sidebar-section h3 {
+  font-size: 11.5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #54595d;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+}
+
+.sidebar-section ul { list-style: none; }
+.sidebar-section ul li { padding: 2px 0; }
+.sidebar-section ul li a { font-size: 12.5px; color: #3366cc; }
+
+/* ── MAIN CONTENT ── */
+#mw-content {
+  flex: 1;
+  padding: 18px 24px 40px 24px;
+  max-width: 960px;
+  overflow-wrap: break-word;
+}
+
+/* Notification bar */
+.mw-notification {
+  background: #eaf3fb;
+  border: 1px solid #a2a9b1;
+  border-radius: 2px;
+  padding: 6px 12px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #202122;
+}
+.mw-notification-icon {
+  color: #3366cc;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+/* Article title */
+#firstHeading {
+  font-family: 'Linux Libertine', Georgia, Times, serif;
+  font-size: 28px;
+  font-weight: normal;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.mw-shortdesc {
+  font-size: 13px;
+  color: #54595d;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+/* ── INFOBOX ── */
+.infobox {
+  float: right;
+  clear: right;
+  margin: 0 0 16px 24px;
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+  font-size: 12.5px;
+  line-height: 1.5;
+  width: 260px;
+  border-collapse: collapse;
+}
+
+.infobox-title {
+  background: #cee0f2;
+  text-align: center;
+  font-weight: bold;
+  font-size: 13.5px;
+  padding: 6px 8px;
+  display: table-caption;
+  border-bottom: 1px solid #a2a9b1;
+  width: 100%;
+}
+
+.infobox-image {
+  text-align: center;
+  padding: 8px 4px 4px;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.infobox-image img {
+  max-width: 220px;
+  height: auto;
+  display: block;
+  margin: 0 auto 4px;
+}
+
+.infobox-caption {
+  font-size: 11.5px;
+  color: #54595d;
+  text-align: center;
+}
+
+.infobox th {
+  text-align: right;
+  vertical-align: top;
+  padding: 4px 8px;
+  font-weight: bold;
+  white-space: nowrap;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eaecf0;
+  color: #202122;
+  width: 40%;
+}
+
+.infobox td {
+  text-align: left;
+  vertical-align: top;
+  padding: 4px 8px;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.infobox-label {
+  color: #54595d;
+  font-size: 11.5px;
+}
+
+/* ── BODY TEXT ── */
+#mw-content p {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+#mw-content ul {
+  margin: 0 0 12px 28px;
+}
+
+#mw-content ul li {
+  margin-bottom: 4px;
+}
+
+/* ── HEADINGS ── */
+#mw-content h2 {
+  font-family: 'Linux Libertine', Georgia, Times, serif;
+  font-size: 20px;
+  font-weight: normal;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 3px;
+  margin: 24px 0 10px;
+  clear: both;
+}
+
+#mw-content h3 {
+  font-family: 'Linux Libertine', Georgia, Times, serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 16px 0 8px;
+}
+
+/* ── TABLE OF CONTENTS ── */
+#toc {
+  float: left;
+  background: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  padding: 10px 16px;
+  margin: 0 24px 16px 0;
+  font-size: 13px;
+  min-width: 180px;
+  max-width: 280px;
+  clear: left;
+}
+
+#toc-heading {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13.5px;
+}
+
+#toc-heading .toc-toggle a {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+#toc ol {
+  margin: 0 0 0 18px;
+  padding: 0;
+}
+
+#toc ol li {
+  margin: 2px 0;
+  counter-increment: none;
+}
+
+#toc ol ol {
+  margin-left: 16px;
+}
+
+/* ── REFERENCES ── */
+.reflist ol {
+  margin: 0 0 16px 28px;
+  font-size: 13px;
+}
+
+.reflist ol li {
+  margin-bottom: 4px;
+  color: #202122;
+}
+
+/* ── CATEGORIES ── */
+.mw-categories {
+  clear: both;
+  border-top: 1px solid #a2a9b1;
+  margin-top: 24px;
+  padding-top: 8px;
+  font-size: 12.5px;
+}
+
+.mw-categories-title {
+  font-weight: bold;
+  display: inline;
+  margin-right: 4px;
+}
+
+.mw-categories ul {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mw-categories ul li {
+  display: inline;
+  margin: 0;
+}
+
+.mw-categories ul li::after { content: " · "; color: #54595d; }
+.mw-categories ul li:last-child::after { content: ""; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  #mw-sidebar { display: none; }
+  .infobox { float: none; width: 100%; margin: 0 0 16px 0; }
+  #p-search input[type="search"] { width: 140px; }
+  #p-personal { display: none; }
+}
