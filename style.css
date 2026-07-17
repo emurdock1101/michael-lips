@@ -267,7 +267,7 @@ a:hover { text-decoration: underline; }
   background: #f8f9fa;
   border-bottom: 1px solid #eaecf0;
   color: #202122;
-  width: 40%;
+  width: 35%;
 }
 
 .infobox td {
@@ -431,7 +431,29 @@ a:hover { text-decoration: underline; }
 /* ── RESPONSIVE ── */
 @media (max-width: 720px) {
   #mw-sidebar { display: none; }
-  .infobox { float: none; width: 100%; margin: 0 0 16px 0; }
-  #p-search input[type="search"] { width: 140px; }
   #p-personal { display: none; }
+
+  /* Wrap the header so tabs + search never overflow the viewport */
+  #mw-head { flex-wrap: wrap; padding: 6px 10px; }
+  #p-logo img { height: 36px; width: 36px; }
+  #mw-head-nav { flex-wrap: wrap; }
+
+  /* Search drops to its own full-width row */
+  #p-search {
+    flex-basis: 100%;
+    margin: 6px 0 2px;
+  }
+  #p-search form { flex: 1; }
+  #p-search input[type="search"] { width: 100%; flex: 1; }
+
+  #mw-content { padding: 14px 14px 32px; }
+
+  /* Infobox and its image fill the full column */
+  .infobox { float: none; width: 100%; margin: 0 0 16px 0; }
+  .infobox-image img { max-width: 100%; width: 100%; }
+
+  #toc { float: none; max-width: none; margin: 0 0 16px 0; }
+
+  .controversy-figure { width: 100%; }
+  .controversy-figure img { width: 100%; }
 }
